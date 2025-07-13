@@ -1,16 +1,41 @@
 {
   "name": "tailwindcss-glitch",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Cyberpunk-inspired glitch plugin for Tailwind CSS",
-  "main": "src/tailwind-glitch-plugin.js",
   "author": "Chandan Kumar Mandal",
+  "main": "./dist/tailwind-glitch-plugin.cjs",
+  "module": "./dist/tailwind-glitch-plugin.mjs",
+  "types": "./dist/tailwind-glitch-plugin.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup src/tailwind-glitch-plugin.ts --dts --format esm,cjs --minify",
+    "version": "npm run build && git add .",
+    "prepublishOnly": "npm run build"
+  },
   "license": "MIT",
-  "keywords": ["tailwindcss", "plugin", "glitch", "cyberpunk", "effect", "geekofia", "chankruze"],
+  "keywords": [
+    "tailwindcss",
+    "plugin",
+    "glitch",
+    "cyberpunk",
+    "effect",
+    "geekofia",
+    "chankruze"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/chankruze/tailwindcss-glitch.git"
   },
   "peerDependencies": {
-    "tailwindcss": "^3.3.0"
+    "tailwindcss": "^4.1.11"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.13",
+    "tsup": "^8.5.0",
+    "typescript": "^5.8.3"
   }
 }
